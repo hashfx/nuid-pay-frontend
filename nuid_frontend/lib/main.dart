@@ -46,6 +46,8 @@ class MyHomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: 16.0),
+            // Square container
             Container(
               padding: EdgeInsets.all(16.0),
               alignment: Alignment.centerLeft,
@@ -93,70 +95,111 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Enter payment amount',
+                  // square container
+                  // Clickable Container
+                  InkWell(
+                    onTap: () {
+                      // Handle Click on My NuID Container
+                      // Navigate to another page or perform other actions
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'My NuID',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              FutureBuilder<String>(
+                                // Assuming you have a function to fetch data from servers
+                                // Replace fetchDataFunction with your actual function
+                                future: fetchDataFunction(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return CircularProgressIndicator();
+                                  } else if (snapshot.hasError) {
+                                    return Text('Error: ${snapshot.error}');
+                                  } else {
+                                    return Text(
+                                      snapshot.data ??
+                                          '', // Display data or default value
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                      ),
+                                    );
+                                  }
+                                },
+                              ),
+                            ],
+                          ),
+                          Icon(Icons.arrow_forward),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(height: 16.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Handle Phrycto Pay button click
-                    },
-                    child: Text('Phrycto Pay'),
+                  // Existing Transfer Crypto Container
+                  Container(
+                    padding: EdgeInsets.all(16.0),
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Transfer Crypto',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // ... rest of the existing code
+                      ],
+                    ),
+                  ),
+                  // Existing Phrycto Pay Container
+                  Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: 'Enter payment amount',
+                          ),
+                        ),
+                        SizedBox(height: 16.0),
+                        ElevatedButton(
+                          onPressed: () {
+                            // Handle Phrycto Pay button click
+                          },
+                          child: Text('Phrycto Pay'),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
+            // ... rest of the existing code
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: IconTheme(
-          data: IconThemeData(
-            size: 28.0,
-            color: Theme.of(context).primaryColor,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                icon: Icon(Icons.home),
-                onPressed: () {
-                  // Handle Home button click
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.payment),
-                onPressed: () {
-                  // Handle Pay button click
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.message),
-                onPressed: () {
-                  // Handle Message button click
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.history),
-                onPressed: () {
-                  // Handle History button click
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
     );
+  }
+
+  // Replace this with your actual function to fetch data from servers
+  Future<String> fetchDataFunction() async {
+    // Simulate fetching data from servers
+    await Future.delayed(Duration(seconds: 2));
+    return '+91 XXXXXXXXXX@apt';
   }
 }
 
