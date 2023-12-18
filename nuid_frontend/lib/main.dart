@@ -188,8 +188,54 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            // ... rest of the existing code
+            SizedBox(height: 16.0), // Add space after the existing content
           ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: IconTheme(
+          data: IconThemeData(
+            size: 28.0,
+            color: Theme.of(context).primaryColor,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                icon: Icon(Icons.home),
+                onPressed: () {
+                  // Handle Home button click
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.payment),
+                onPressed: () {
+                  // Handle Pay button click
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.message),
+                onPressed: () {
+                  // Handle Message button click
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.history),
+                onPressed: () {
+                  // Handle History button click
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+      // Footer Bar
+      bottomSheet: Container(
+        padding: EdgeInsets.all(16.0),
+        color: Colors.grey[200],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [],
         ),
       ),
     );
