@@ -19,10 +19,10 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('NuID'),
+        title: const Text('NuID'),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.payment,
               size: 28.0,
               color: Colors.purple,
@@ -32,7 +32,7 @@ class MyHomePage extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.qr_code,
               size: 28.0,
               color: Colors.purple,
@@ -46,22 +46,22 @@ class MyHomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             // Square container
             Container(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               alignment: Alignment.centerLeft,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Transfer Crypto',
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -103,14 +103,14 @@ class MyHomePage extends StatelessWidget {
                       // Navigate to another page or perform other actions
                     },
                     child: Container(
-                      padding: EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(16.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 'My NuID',
                                 style: TextStyle(
                                   fontSize: 20.0,
@@ -124,14 +124,14 @@ class MyHomePage extends StatelessWidget {
                                 builder: (context, snapshot) {
                                   if (snapshot.connectionState ==
                                       ConnectionState.waiting) {
-                                    return CircularProgressIndicator();
+                                    return const CircularProgressIndicator();
                                   } else if (snapshot.hasError) {
                                     return Text('Error: ${snapshot.error}');
                                   } else {
                                     return Text(
                                       snapshot.data ??
                                           '', // Display data or default value
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 16.0,
                                       ),
                                     );
@@ -140,17 +140,17 @@ class MyHomePage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Icon(Icons.arrow_forward),
+                          const Icon(Icons.arrow_forward),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   // Existing Transfer Crypto Container
                   Container(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     alignment: Alignment.centerLeft,
-                    child: Column(
+                    child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -166,21 +166,21 @@ class MyHomePage extends StatelessWidget {
                   ),
                   // Existing Phrycto Pay Container
                   Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextField(
+                        const TextField(
                           decoration: InputDecoration(
                             labelText: 'Enter payment amount',
                           ),
                         ),
-                        SizedBox(height: 16.0),
+                        const SizedBox(height: 16.0),
                         ElevatedButton(
                           onPressed: () {
                             // Handle Phrycto Pay button click
                           },
-                          child: Text('Phrycto Pay'),
+                          child: const Text('Phrycto Pay'),
                         ),
                       ],
                     ),
@@ -188,7 +188,7 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 16.0), // Add space after the existing content
+            const SizedBox(height: 16.0), // Add space after the existing content
           ],
         ),
       ),
@@ -202,25 +202,25 @@ class MyHomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                icon: Icon(Icons.home),
+                icon: const Icon(Icons.home),
                 onPressed: () {
                   // Handle Home button click
                 },
               ),
               IconButton(
-                icon: Icon(Icons.payment),
+                icon: const Icon(Icons.payment),
                 onPressed: () {
                   // Handle Pay button click
                 },
               ),
               IconButton(
-                icon: Icon(Icons.message),
+                icon: const Icon(Icons.message),
                 onPressed: () {
                   // Handle Message button click
                 },
               ),
               IconButton(
-                icon: Icon(Icons.history),
+                icon: const Icon(Icons.history),
                 onPressed: () {
                   // Handle History button click
                 },
@@ -231,9 +231,9 @@ class MyHomePage extends StatelessWidget {
       ),
       // Footer Bar
       bottomSheet: Container(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         color: Colors.grey[200],
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [],
         ),
@@ -244,7 +244,7 @@ class MyHomePage extends StatelessWidget {
   // Replace this with your actual function to fetch data from servers
   Future<String> fetchDataFunction() async {
     // Simulate fetching data from servers
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     return '+91 XXXXXXXXXX@apt';
   }
 }
@@ -271,7 +271,7 @@ class ClickableIcon extends StatelessWidget {
             size: 40.0,
             color: Theme.of(context).primaryColor,
           ),
-          SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
           Text(
             label,
             textAlign: TextAlign.center,
