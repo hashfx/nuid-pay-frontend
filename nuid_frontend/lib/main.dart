@@ -16,21 +16,35 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
+        automaticallyImplyLeading: false, // Hide the default hamburger icon
         title: Row(
           children: [
-            InkWell(
-              onTap: () {
-                // Handle user icon click (open navigation menu)
-                // Implement your logic to open the navigation menu
+            GestureDetector(
+              onHorizontalDragEnd: (details) {
+                // Open or close drawer based on the direction of the swipe
+                if (details.primaryVelocity! > 0) {
+                  _scaffoldKey.currentState?.openDrawer();
+                } else if (details.primaryVelocity! < 0 &&
+                    _scaffoldKey.currentState!.isDrawerOpen) {
+                  Navigator.of(context).pop(); // Close the drawer
+                }
               },
-              child: CircleAvatar(
-                // Load the user image from the server
-                backgroundImage: NetworkImage(
-                    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png'),
+              child: InkWell(
+                onTap: () {
+                  // Handle user icon click (open navigation drawer)
+                  _scaffoldKey.currentState?.openDrawer();
+                },
+                child: CircleAvatar(
+                  // Load the user image from the server
+                  backgroundImage: NetworkImage(
+                      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png'),
+                ),
               ),
             ),
             const SizedBox(width: 8.0),
@@ -66,11 +80,11 @@ class MyHomePage extends StatelessWidget {
           ),
         ],
         backgroundColor: Colors.deepPurple, // Set the color of the AppBar
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20), // Add rounded corners
-          ),
-        ),
+        // shape: RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.vertical(
+        //     bottom: Radius.circular(20), // Add rounded corners
+        //   ),
+        // ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -222,6 +236,7 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+      drawer: ProfNavDrawer(), // Use the drawer from the external file
       bottomNavigationBar: BottomAppBar(
         child: IconTheme(
           data: IconThemeData(
