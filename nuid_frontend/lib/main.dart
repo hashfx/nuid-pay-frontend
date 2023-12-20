@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'prof_nav_drawer.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +20,29 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('NuID'),
+        title: Row(
+          children: [
+            InkWell(
+              onTap: () {
+                // Handle user icon click (open navigation menu)
+                // Implement your logic to open the navigation menu
+              },
+              child: CircleAvatar(
+                // Load the user image from the server
+                backgroundImage: NetworkImage(
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png'),
+              ),
+            ),
+            const SizedBox(width: 8.0),
+            const Text(
+              'NuID',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
         actions: [
           IconButton(
             icon: const Icon(
@@ -42,6 +65,12 @@ class MyHomePage extends StatelessWidget {
             },
           ),
         ],
+        backgroundColor: Colors.deepPurple, // Set the color of the AppBar
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20), // Add rounded corners
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -188,7 +217,8 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 16.0), // Add space after the existing content
+            const SizedBox(
+                height: 16.0), // Add space after the existing content
           ],
         ),
       ),
