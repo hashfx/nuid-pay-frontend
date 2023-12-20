@@ -79,14 +79,18 @@ class MyHomePage extends StatelessWidget {
             },
           ),
         ],
-        backgroundColor: Colors.deepPurple, // Set the color of the AppBar
+        backgroundColor: Colors.deepPurple,
         // shape: RoundedRectangleBorder(
         //   borderRadius: BorderRadius.vertical(
-        //     bottom: Radius.circular(20), // Add rounded corners
+        //     bottom: Radius.circular(20),
         //   ),
         // ),
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width > 600 ? 50.0 : 16.0,
+          vertical: 8.0,
+        ),
         child: Column(
           children: [
             const SizedBox(height: 16.0),
@@ -106,7 +110,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 16.0),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       ClickableIcon(
                         icon: Icons.phone,
@@ -138,7 +142,6 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  // square container
                   // Clickable Container
                   InkWell(
                     onTap: () {
@@ -161,8 +164,6 @@ class MyHomePage extends StatelessWidget {
                                 ),
                               ),
                               FutureBuilder<String>(
-                                // Assuming you have a function to fetch data from servers
-                                // Replace fetchDataFunction with your actual function
                                 future: fetchDataFunction(),
                                 builder: (context, snapshot) {
                                   if (snapshot.connectionState ==
@@ -189,7 +190,6 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16.0),
-                  // Existing Transfer Crypto Container
                   Container(
                     padding: const EdgeInsets.all(16.0),
                     alignment: Alignment.centerLeft,
@@ -207,7 +207,6 @@ class MyHomePage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Existing Phrycto Pay Container
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
@@ -231,8 +230,7 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(
-                height: 16.0), // Add space after the existing content
+            const SizedBox(height: 16.0),
           ],
         ),
       ),
@@ -274,7 +272,6 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
       ),
-      // Footer Bar
       bottomSheet: Container(
         padding: const EdgeInsets.all(16.0),
         color: Colors.grey[200],
@@ -286,9 +283,7 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  // Replace this with your actual function to fetch data from servers
   Future<String> fetchDataFunction() async {
-    // Simulate fetching data from servers
     await Future.delayed(const Duration(seconds: 2));
     return '+91 XXXXXXXXXX@apt';
   }
@@ -307,21 +302,27 @@ class ClickableIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      child: Column(
-        children: [
-          Icon(
-            icon,
-            size: 40.0,
-            color: Theme.of(context).primaryColor,
-          ),
-          const SizedBox(height: 8.0),
-          Text(
-            label,
-            textAlign: TextAlign.center,
-          ),
-        ],
+    return Flexible(
+      child: InkWell(
+        onTap: onPressed,
+        child: Column(
+          children: [
+            FittedBox(
+              child: Icon(
+                icon,
+                size: 40.0,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            FittedBox(
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
