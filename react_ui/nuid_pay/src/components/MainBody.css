@@ -16,6 +16,7 @@
 
 .clickable-container {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   cursor: pointer;
   margin: 10px;
@@ -23,18 +24,19 @@
   max-width: 300px;
 }
 
-.container-part {
+.container-part-arrow {
   text-align: left;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.dynamic-string {
+  margin-left: 2px;
   flex: 1;
 }
 
-/* .dynamic-string {
-  // Adjust styling for dynamic string part 
-
-} */
-
 .icon {
-  font-size: 48px;
+  font-size: 25px;
 }
 
 .container p {

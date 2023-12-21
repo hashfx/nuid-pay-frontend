@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWallet, faAddressBook, faQrcode, faBuildingColumns, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import FrequentContacts from './FrequentContacts';
 
+let dynamicString = "xxxxxxxxxx@apt";
+
 const MainBody = () => {
     const contacts = [
         { id: 1, name: 'Kenichi', image: 'https://as2.ftcdn.net/v2/jpg/02/29/75/83/1000_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg' },
@@ -44,9 +46,9 @@ const MainBody = () => {
                 <div className="container-part">
                     <strong>My NuID: </strong>
                 </div>
-                <div className="container-part dynamic-string">
+                <div className="dynamic-string">
                     {/* Assuming you have a dynamic string, replace 'dynamicString' with your actual data */}
-                    6942069420@apt
+                    {dynamicString}
                 </div>
                 <div className="container-part-arrow">
                     <FontAwesomeIcon icon={faArrowRight} className="icon" />
@@ -61,10 +63,9 @@ const MainBody = () => {
 
             {/* Horizontal Slider */}
             <div className="slider">
-                {/* Slick Slider implementation */}
+
             </div>
         </div>
     );
 };
-
 export default MainBody;
