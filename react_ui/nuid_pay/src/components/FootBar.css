@@ -1,0 +1,21 @@
+/* FootBar.css */
+.foot-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: #2196F3;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.foot-bar a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.icon {
+    cursor: pointer;
+}

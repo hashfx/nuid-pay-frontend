@@ -1,0 +1,27 @@
+/* MainBody.css */
+.main-body {
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.container img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.container p {
+    margin: 10px 0;
+}
+
+/* Slider Styles */
+.slider {
+    width: 100%;
+    margin-top: 20px;
+}
