@@ -11,11 +11,19 @@
     width: 100%;
 }
 
-.foot-bar a {
-    text-decoration: none;
-    color: #fff;
+.foot-icon-container {
+    text-align: center;
 }
 
-.icon {
+.foot-icon {
+    font-size: 24px;
     cursor: pointer;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    .icon {
+        font-size: 20px;
+        /* Adjust font size for smaller screens */
+    }
 }
