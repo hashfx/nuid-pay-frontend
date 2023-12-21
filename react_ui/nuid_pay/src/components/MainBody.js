@@ -1,28 +1,30 @@
 // src/components/MainBody.js
 import React from 'react';
 import './MainBody.css'; // You can style this file accordingly
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWallet, faAddressBook, faQrcode, faBuildingColumns } from '@fortawesome/free-solid-svg-icons';
 
 const MainBody = () => {
     return (
         <div className="main-body">
             {/* Containers */}
             <div className="container">
-                <img src="image1.jpg" alt="image1" />
-                <p>Text 1</p>
+                {/* <img src="image1.jpg" alt="image1" /> */}
+                <FontAwesomeIcon icon={faAddressBook} className="icon" />
+                <p>To Contact</p>
             </div>
             <div className="container">
-                <img src="image1.jpg" alt="image1" />
-                <p>Text 1</p>
+            <FontAwesomeIcon icon={faBuildingColumns} className="icon" />
+                <p>To Hawala</p>
             </div>
             <div className="container">
-                <img src="image1.jpg" alt="image1" />
-                <p>Text 1</p>
+            <FontAwesomeIcon icon={faQrcode} className="icon" />
+                <p>Scan QR</p>
             </div>
             <div className="container">
-                <img src="image1.jpg" alt="image1" />
-                <p>Text 1</p>
+            <FontAwesomeIcon icon={faWallet} className="icon" />
+                <p>To Wallet</p>
             </div>
-            {/* Repeat for 3 more containers */}
 
             {/* Horizontal Slider */}
             <div className="slider">
