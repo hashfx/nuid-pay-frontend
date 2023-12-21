@@ -12,18 +12,39 @@
 }
 
 .foot-icon-container {
-    text-align: center;
+    display: flex;
+    /* Use flexbox for icon and text arrangement */
+    flex-direction: column;
+    /* Stack icon and text vertically */
+    align-items: center;
+    /* Center text horizontally */
+    margin: 0 10px;
+    /* Add a bit of spacing between items */
 }
 
 .foot-icon {
     font-size: 24px;
     cursor: pointer;
+    margin-bottom: 5px;
+    /* Add space between icon and text */
 }
 
-/* Add media queries for responsiveness */
+.foot-icon-text {
+    font-size: 14px;
+    /* Adjust text size as needed */
+    text-decoration: underline;
+    /* Underline the text */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .icon {
+    .foot-icon {
         font-size: 20px;
-        /* Adjust font size for smaller screens */
+        /* Adjust icon size for smaller screens */
+    }
+
+    .foot-icon-text {
+        font-size: 12px;
+        /* Adjust text size for smaller screens */
     }
 }
