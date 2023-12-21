@@ -46,9 +46,9 @@ const MainBody = () => {
                 </div>
                 <div className="container-part dynamic-string">
                     {/* Assuming you have a dynamic string, replace 'dynamicString' with your actual data */}
-                    dynamicString
+                    6942069420@apt
                 </div>
-                <div className="container-part">
+                <div className="container-part-arrow">
                     <FontAwesomeIcon icon={faArrowRight} className="icon" />
                 </div>
             </div>
